@@ -4,8 +4,10 @@ import com.facebook.chathudan.BasePresenter;
 import com.facebook.chathudan.BaseView;
 
 /**
- * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 12/18/17.
+ *
+ * @author Chathura Wijesinghe (cdanasiri@gmail.com)
  */
+
 
 public interface LoginContract {
 
@@ -20,7 +22,5 @@ public interface LoginContract {
     void checkToken();
 
     void login();
-
   }
-
 }

@@ -3,7 +3,7 @@ package com.facebook.chathudan.data.model;
 import java.util.ArrayList;
 
 /**
- * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 12/20/17.
+ * @author Chathura Wijesinghe (cdanasiri@gmail.com)
  */
 
 public class FriendsListResponse {
@@ -34,5 +34,4 @@ public class FriendsListResponse {
   public void setPreviousPageId(String previousPageId) {
     this.previousPageId = previousPageId;
   }
-
 }

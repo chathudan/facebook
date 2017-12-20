@@ -15,13 +15,12 @@ public class FacebookAPI {
   public static final String BASE_URL = "https://graph.facebook.com/";
   private static Retrofit retrofit = null;
 
-  private static Gson gson = new GsonBuilder()
-      .registerTypeAdapter(FriendsListResponse.class, new FriendDeserializer())
-      .create();
+  private static Gson gson =
+      new GsonBuilder().registerTypeAdapter(FriendsListResponse.class, new FriendDeserializer())
+          .create();
 
   public static Retrofit getService() {
-    retrofit = new Retrofit.Builder()
-        .baseUrl(BASE_URL)
+    retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build();
     return retrofit;

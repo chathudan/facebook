@@ -4,19 +4,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 12/18/17.
+ * The Friend model which keep facebook friend's details
+ *
+ * @author Chathura Wijesinghe (cdanasiri@gmail.com)
  */
-
 public class Friend {
-  @SerializedName("id")
-  @Expose
-  private String id;
-  @SerializedName("name")
-  @Expose
-  private String name;
-  @SerializedName("picture")
-  @Expose
-  private String picture;
+  @SerializedName("id") @Expose private String id;
+  @SerializedName("name") @Expose private String name;
+  @SerializedName("picture") @Expose private String picture;
 
   public String getId() {
     return id;

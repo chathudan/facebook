@@ -7,11 +7,11 @@ import com.facebook.AccessToken;
  * Created by Chathura Wijesinghe <cdanasiri@gmail.com> on 12/18/17.
  */
 
-public class LoginPrecenter implements LoginContract.Presenter{
+public class LoginPrecenter implements LoginContract.Presenter {
 
   private final LoginContract.View mLoginView;
 
-  public LoginPrecenter(@NonNull LoginContract.View loginView){
+  public LoginPrecenter(@NonNull LoginContract.View loginView) {
     this.mLoginView = loginView;
 
     mLoginView.setPresenter(this);
@@ -27,7 +27,7 @@ public class LoginPrecenter implements LoginContract.Presenter{
 
   @Override public void checkToken() {
     AccessToken accessToken = AccessToken.getCurrentAccessToken();
-    if (accessToken!=null){
+    if (accessToken != null) {
 
     }
   }

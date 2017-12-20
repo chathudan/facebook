@@ -6,5 +6,4 @@ package com.facebook.chathudan;
 public interface BasePresenter {
 
   void start();
-
 }
