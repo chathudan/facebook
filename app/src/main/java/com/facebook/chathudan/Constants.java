@@ -14,5 +14,5 @@ public class Constants {
   /**
    * Number of users per request
    */
-  public static final int PAGE_SIZE = 10;
+  public static final int PAGE_SIZE = 5;
 }

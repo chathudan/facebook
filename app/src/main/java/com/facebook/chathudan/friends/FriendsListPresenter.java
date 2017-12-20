@@ -23,6 +23,7 @@ public class FriendsListPresenter {
 
   private GetFriends mGetFriendsUseCase = new GetFriends();
   private ArrayList<Friend> mFriendsList = new ArrayList<Friend>();
+  private boolean isLoading;
 
   public FriendsListPresenter(FriendsListView friendsListView) {
     this.mFriendsListView = friendsListView;
@@ -50,6 +51,7 @@ public class FriendsListPresenter {
   private final Callback<FriendsListResponse> mFriendsListResponseCallback = new Callback<FriendsListResponse>() {
     @Override
     public void onResponse(Call<FriendsListResponse> call, Response<FriendsListResponse> response) {
+      isLoading = false;
       if (response.isSuccessful()){
         FriendsListResponse listResponse = response.body();
 
@@ -62,6 +64,19 @@ public class FriendsListPresenter {
         }
         mFriendsList.addAll(index, newFriends);
 
+        if ((nextPageId != null)) {
+          // remove all friends for loading  friends
+          if (index == 0) {
+            mFriendsList.add(null);
+          }
+        } else {
+          // remove friends from loading
+          index = mFriendsList.size() - 1;
+          if (mFriendsList.get(index) == null) {
+            mFriendsList.remove(index);
+          }
+        }
+
         mFriendsListView.loadFriends(mFriendsList);
       }else {
       //  TODO handle me , response isn't success
@@ -69,11 +84,16 @@ public class FriendsListPresenter {
     }
 
     @Override public void onFailure(Call<FriendsListResponse> call, Throwable t) {
+      isLoading = false;
     //  TODO handle me
     }
   };
 
   public void onLoadMore(int totalItemsCount, int visibleItemsCount, int firstVisibleItemPosition) {
-  //  TODO load more
+    if ((nextPageId != null) && !isLoading && (visibleItemsCount + firstVisibleItemPosition >= totalItemsCount)) {
+      // Load more friends
+      isLoading = true;
+      mGetFriendsUseCase.getFriendsList(userId, mToken.getToken(), PAGE_SIZE, nextPageId, mFriendsListResponseCallback);
+    }
   }
 }

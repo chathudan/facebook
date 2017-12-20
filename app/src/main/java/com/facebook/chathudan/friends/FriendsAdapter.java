@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.facebook.chathudan.R;
 import com.facebook.chathudan.data.model.Friend;
@@ -21,10 +22,10 @@ import java.util.ArrayList;
  * @author Chathura Wijesinghe (cdanasiri@gmail.com)
  */
 
-
 public class FriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
   private final int TYPE_FRIEND = 0;
+  public final int TYPE_LOAD = 1;
 
   private final ArrayList<Friend> mFriendList;
   private Context mContext;
@@ -37,10 +38,11 @@ public class FriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     mContext = parent.getContext();
     LayoutInflater inflater = LayoutInflater.from(mContext);
-    //TODO add loading for pagination / friends limit
-    //if (viewType == TYPE_FRIEND) {
-    return new FriendViewHolder(inflater.inflate(R.layout.item_friend, parent, false));
-    //}
+    if (viewType == TYPE_FRIEND) {
+      return new FriendViewHolder(inflater.inflate(R.layout.item_friend, parent, false));
+    } else {
+      return new LoadingViewHolder(inflater.inflate(R.layout.item_loading, parent, false));
+    }
   }
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
@@ -62,6 +64,15 @@ public class FriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     return mFriendList.size();
   }
 
+  @Override
+  public int getItemViewType(int position) {
+    if (mFriendList.get(position) != null) {
+      return TYPE_FRIEND;
+    } else {
+      return TYPE_LOAD;
+    }
+  }
+
   public class FriendViewHolder extends RecyclerView.ViewHolder {
     public TextView name;
     public ImageView avatar;
@@ -70,6 +81,16 @@ public class FriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
       super(view);
       name = (TextView) view.findViewById(R.id.title);
       avatar = (ImageView) view.findViewById(R.id.avatar);
+    }
+  }
+
+  public class LoadingViewHolder extends RecyclerView.ViewHolder {
+
+    public ProgressBar prgLoading;
+
+    public LoadingViewHolder(View v) {
+      super(v);
+      prgLoading = (ProgressBar) v.findViewById(R.id.prg_loading);
     }
   }
 }
