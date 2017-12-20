@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.facebook.chathudan.friends.FriendListActivity"
+    >
+  <android.support.v4.widget.SwipeRefreshLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/swipe_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="5dp"
+      >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_friends_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        >
+    </android.support.v7.widget.RecyclerView>
+  </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

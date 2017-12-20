@@ -22,14 +22,14 @@ import java.util.ArrayList;
  */
 
 
-public class FriendsAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class FriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
   private final int TYPE_FRIEND = 0;
 
   private final ArrayList<Friend> mFriendList;
   private Context mContext;
 
-  public FriendsAdaptor(ArrayList<Friend> friendsList) {
+  public FriendsAdapter(ArrayList<Friend> friendsList) {
     this.mFriendList = friendsList;
   }
 

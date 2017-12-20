@@ -72,4 +72,8 @@ public class FriendsListPresenter {
     //  TODO handle me
     }
   };
+
+  public void onLoadMore(int totalItemsCount, int visibleItemsCount, int firstVisibleItemPosition) {
+  //  TODO load more
+  }
 }

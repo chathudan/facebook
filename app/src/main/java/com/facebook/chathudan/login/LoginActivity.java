@@ -13,6 +13,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.chathudan.R;
+import com.facebook.chathudan.friends.FriendListActivity;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
   }
 
   @Override public void showFriends() {
+    Intent intent = new Intent(this, FriendListActivity.class);
+    startActivity(intent);
   }
 
   @Override public void updateAuthSuccess(boolean success) {
