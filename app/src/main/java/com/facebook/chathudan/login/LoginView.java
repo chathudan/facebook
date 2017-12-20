@@ -8,6 +8,7 @@ public interface LoginView {
 
   void initialiseFacebook();
 
-  void login();
+  void showFriends();
 
+  void updateAuthSuccess(boolean success);
 }
