@@ -59,7 +59,7 @@ public class FriendsAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder
   }
 
   @Override public int getItemCount() {
-    return 0;
+    return mFriendList.size();
   }
 
   public class FriendViewHolder extends RecyclerView.ViewHolder {

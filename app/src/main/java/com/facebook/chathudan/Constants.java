@@ -6,5 +6,13 @@ package com.facebook.chathudan;
 
 public class Constants {
 
+  /**
+   * Request Facebook permissions to access
+   */
   public static final String [] FACBOOK_PERMISSONS = {"email", "public_profile", "user_friends"};
+
+  /**
+   * Number of users per request
+   */
+  public static final int PAGE_SIZE = 10;
 }
