@@ -16,7 +16,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginView{
 
   @BindView(R.id.textView) TextView textToken;
   @BindView(R.id.login_button) LoginButton buttonLogin;
@@ -78,4 +78,11 @@ public class LoginActivity extends AppCompatActivity {
     super.onActivityResult(requestCode, resultCode, data);
   }
 
+  @Override public void initialiseFacebook() {
+
+  }
+
+  @Override public void login() {
+
+  }
 }

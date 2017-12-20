@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="img_width_height">96dp</dimen>
+  <dimen name="app_margin">8dp</dimen>
+
+  <dimen name="card_margin">5dp</dimen>
+  <dimen name="card_album_radius">0dp</dimen>
+  <dimen name="avatar_height">160dp</dimen>
+  <dimen name="title_padding">10dp</dimen>
+  <dimen name="title">15dp</dimen>
+</resources>
